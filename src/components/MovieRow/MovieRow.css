@@ -8,8 +8,10 @@
   overflow-x: hidden;
   padding-left: 30px;
 }
-.movie--list{
+.movieRow--list{
+  width: 99999999px;
 }
+
 .movieRow--item {
   display: inline-block;
   width: 150px;

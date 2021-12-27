@@ -60,7 +60,6 @@ export default {
 
   getMovieInfo : async (movieId, type) => {
     let info = {};
-
     if(movieId){
       switch(type){
         case 'movie':
@@ -77,6 +76,7 @@ export default {
         
       }
     }
+    return info;
   }
 
 }
