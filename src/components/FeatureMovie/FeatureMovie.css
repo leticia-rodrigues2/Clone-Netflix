@@ -15,7 +15,8 @@ background: linear-gradient(to top, #111 10%, transparent 90%);
   flex-direction: column;
   justify-content: center;
   padding-left: 30px;
-  padding-bottom: 150;
+  padding-bottom: 150px;
+  padding-top: 70px;
   
 }
 

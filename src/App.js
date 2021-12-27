@@ -7,7 +7,7 @@ import Header from "./components/Header"
 export default () =>{
   const [movieList , setMovieList] = useState([]);
   const [featureData , setFeatureData ] = useState(null);
-
+  const [blackHeader, setBlackHeader] = useState (false);
 
   useEffect(() => {
       const loadAll = async () => {
@@ -26,10 +26,24 @@ export default () =>{
             }
   loadAll();
   },[]);
+// Nav Bar regra para quando deve ficar transparente 
+  useEffect(() => {
+    const scrollListener = () => {
+      if(window.scrollY > 10){
+        setBlackHeader(true)
+      }else{
+        setBlackHeader(false);
+      }
+    }
+    window.addEventListener('scroll', scrollListener);
+    return()=> {
+      window.removeEventListener('scroll' , scrollListener);
+    }
+  }, []);
 
   return(
   <div className="page">
-    <Header/>
+    <Header black= {blackHeader}/>
 
     {featureData && 
       <FeatureMovie item={featureData}/> 
@@ -42,6 +56,13 @@ export default () =>{
       </div>
       )}
     </section>
+
+        <footer>
+          Feito com ♥ pela B7Web - 
+          Replicado por Leticia Rodrigues ♥ -
+          Direitos de imagem para netflix - 
+          Dados pegos do site TheMoviedb.org 
+        </footer>
     </div>
    );
 }
